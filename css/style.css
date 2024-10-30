@@ -1,0 +1,818 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primarycolor:#30448D;
+    --secondarycolor:#FF9022;
+    --tetriarycolor:#FFFDD0;
+    --backgroundcolor:rgb(253, 204, 114);
+}
+
+/* Styling af navigationsbar */
+body {
+    font-family: Noto Sans,sans-serif;
+}
+
+header {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background:var(--primarycolor);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    padding: 10px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+
+header .logo {
+    font-weight: bolder;
+    font-size: 1rem;
+    color: #333;
+}
+
+header .navbar ul {
+    list-style: none;
+}
+
+header .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 18px;
+    color: white;
+    display: block;
+}
+
+header .navbar ul li a:hover {
+    background:var(--secondarycolor);
+    color: black;
+}
+
+header .navbar ul li ul {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    display:none;
+}
+
+header .navbar ul li ul li {
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    background-color: var(--secondarycolor);
+}
+
+header .navbar ul li ul li ul {
+    left: 200px;
+    top:0;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul {
+    display: block;
+}
+
+#menu-bar {
+    display:none;
+}
+
+header label {
+    font-size: 20px;
+    color:white;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width:991px){
+
+
+    header {
+        padding: 20px;
+    }
+    
+    header label {
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left:0;
+        right:0;
+        background:var(--primarycolor);
+        border-top: 1px solid rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    header .navbar ul li {
+        width: 100%;
+    }
+
+    header .navbar ul li ul {
+        position: relative;
+        width: 100%;
+    }
+
+    header .navbar ul li ul li {
+        background: var(--primarycolor);
+    }
+
+    header .navbar ul li ul li ul {
+        width: 100%;
+        left:0;
+    }
+
+    #menu-bar:checked ~ .navbar {
+        display: block;
+    }
+
+}
+
+
+.logo-img{
+    display: flex;
+    width:10%;
+    height: auto;
+    padding-right: 5px;
+}
+
+.logo-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.forside-logo{
+    display: flex;
+    align-items: center;
+}
+
+
+h1{
+    font-family:Noto Sans, sans-serif;
+    font-size: 2rem;
+    padding-left: 5px;
+    color: white;
+}
+
+span{
+    color: var(--secondarycolor);
+}
+
+
+/* Styling af forside content */
+main{
+    padding-top: 8rem;
+}
+
+
+h2{
+    font-family: EB Garamond,sans-serif;
+    color: var(--secondarycolor);
+
+}
+
+
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.textbox{
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
+
+figure{
+    flex: 1;
+    display: flex;
+    justify-content:center;
+    margin: 0 auto;
+}
+
+figure img{
+    height: auto;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+
+.textbox h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.nyheder-tekst p a{
+    text-decoration: none;
+    color: white;
+}
+
+.nyheder-tekst p a:hover{
+    background-color: var(--backgroundcolor);
+}
+
+.nyheder-tekst {
+    background-color: var(--primarycolor);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    height: 280px;
+    font-size: 0.8rem;
+    
+}
+
+.nyheder-tekst p{
+    padding: 10px;
+}
+
+
+
+.mode-tekst {
+    background-color: var(--primarycolor); 
+    color: white;
+    padding: 15px;
+    width: 200px;
+    height: 280px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.mode-tekst ul a{
+    text-decoration: none;
+    color: var(--secondarycolor);
+}
+
+.mode-tekst ul a:hover{
+    background-color:var(--backgroundcolor);
+}
+
+.mode-tekst ul{
+    padding-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.mode-tekst ul li{
+    padding: 5px;
+}
+
+.mode-tekst p{
+    line-height: 2;
+}
+
+/* Styling af genbrugstips afsnittet */
+
+.genbrug-tips .genbrug-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.genbrug-tips{
+    margin-top: 8rem;
+    background: var(--tetriarycolor);
+}
+
+.tips-tekst{
+    background-color: var(--primarycolor);
+    color: white;
+    padding: 20px;
+    font-size: 0.8rem;
+    flex: 1;
+    max-width: 50%;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.tips-tekst ul li{
+    padding: 10px;
+    margin: 0.5rem;
+}
+
+.tips-overskrift{
+    margin-top: 30px;
+    padding-top: 5rem;
+    margin-left: 2rem;
+}
+
+.materiale-img img{
+    max-width: 60%;
+    height: auto;
+    margin-left: 6.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.materiale-img{
+    align-items: flex-start;
+    margin-top: -30px;
+    margin-bottom: 5rem;
+}
+
+/* Styling af Sæson afsnittet */
+.saeson{
+    margin: 8rem;
+}
+
+.tre-kasser{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.box a{
+    text-decoration: none;
+}
+
+.box h3{
+    color: var(--secondarycolor);
+}
+
+.box h3:hover{
+    background-color: rgb(253, 204, 114)
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primarycolor);
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+.saeson-overskrift{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+/* Styling af footer */
+.footer-section aside{
+    flex: 1;
+    margin: 0 20px;
+    text-align: center;
+}
+    
+
+.line{
+width:35%;
+margin: auto;
+border: none;
+background-color: var(--secondarycolor);
+height: 1.5px;
+}
+
+.footer-section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 2rem;
+    margin-bottom: 2.5rem;
+
+}
+
+
+/* Styling af SoMe afsnit i footeren */
+.some-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    align-self: flex-start;
+
+}
+
+.some-img .ig{
+    width: 65px;
+    height: 65px;
+}
+.some{
+    width: 60px;
+    height:60px;
+    margin-top: 0rem;
+}
+
+.some-img img{
+    padding: 5px;
+}
+
+
+/* Styling af form */
+.form{
+    text-align: center;
+}
+
+.form form{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.form input{
+    padding: 0.5rem;
+    border: none;
+    background-color: var(--secondarycolor);
+    margin-bottom: 10px;
+}
+
+.form ::placeholder{
+    color: white;
+    text-align: center;
+}
+
+.form button{
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    background-color: var(--primarycolor);
+    color: white;
+}
+
+.form button:hover{
+    background-color: var(--secondarycolor);
+}
+
+/* Styling af kontakt afsnit */
+.kontakt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kontakt, .form h3{
+    color: var(--secondarycolor);
+    font-family: Noto Sans, sans-serif;
+    margin-bottom: 10px;
+}
+
+.copyright{
+    margin-top: 10px;
+    font-size: 0.8rem
+}
+
+
+/* Styling af diy.html */
+/* Styling af tekstboks afsnit og billede til */
+
+.toj-tekst {
+    background-color: var(--primarycolor);
+    color: white;
+    padding: 20px;
+    font-size: 0.8rem;
+    width: 400px;
+    text-align: center;
+    line-height: 2;
+    margin-right: 7rem;
+}
+
+.custom-p{
+    padding: 60px 0 0 0;
+}
+.toj-tekst h2{
+    padding-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.toj-tekstboks{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 5rem;
+}
+
+.toj-img{
+    width: 400px;
+}
+
+.toj-img img{
+    width: 90%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+/* Styling af længere levetid og upcycling artiklerne */
+.artikler{
+    margin: 0 6rem 6rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--tetriarycolor);
+    border-radius: 1%;
+}
+
+.artikler article{
+    padding: 30px;
+}
+.artikler h2{
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 40px;
+}
+
+.artikler p{
+    line-height: 2;
+}
+.artikel-levetid{
+    margin-bottom: 5rem;
+}
+
+.artikel-levetid ul{
+    padding-left: 3rem;
+    padding-top: 10px;
+}
+
+.artikel-levetid ul li{
+    padding: 10px;
+}
+
+.artikel-levetid p span{
+    color: black;
+    font-style: italic;
+}
+
+.artikel-upcycle p{
+    padding:12px 0 12px 0;
+}
+
+/* Styling af reparation artikel */
+.upcycling-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.upcycling-img img{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    height: auto;
+    width: 80%;
+}
+
+.rep-artikel h2{
+    padding: 0;
+    text-align: left;
+}
+
+.rep-artikel p{
+    padding: 12px 0 12px 0;
+}
+
+.rep-artikel p a{
+    text-decoration: none;
+}
+
+.rep-artikel p a span{
+    font-style: italic;
+    color: black;
+}
+
+.rep-artikel p a span:hover{
+    text-decoration: underline;
+}
+
+/* Styling af trends.html */
+
+/* Styling af øverste afsnit trends of fashion */
+
+.ft-afsnit p{
+    line-height: 2;
+}
+.ft-afsnit{
+    display: flex;
+    margin: 4rem;
+    margin-left: 6rem;
+}
+
+.ft-artikel{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.ft-artikel h2{
+    text-align: left;
+}
+
+.ft-artikel p{
+    padding: 20px 0 20px 0;
+}
+
+.trend-img{
+    margin-left: 5rem;
+    margin-right: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.trend-img img{
+    width:150%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);   
+}
+
+/* Styling af fast-fashion artikel */
+.fastfashion-afsnit{
+    display: flex;
+    margin: 4rem;
+    margin-left: 6rem;
+}
+
+.fastfashion-artikel{
+    display: flex;
+    flex-direction: column;
+}
+
+.fastfashion-artikel h2{
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.fastfashion-artikel p{
+    text-align: left;
+    line-height: 2;
+    padding: 20px;
+}
+
+.fastfashion-artikel p span{
+    font-style: italic;
+    color: black;
+}
+
+/* Styling af Budgetvenlig og bæredygtig afsnit */
+.bb-afsnit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6rem;
+    margin-bottom: 8rem;
+}
+
+.bb-artikel{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bb-artikel p{
+    line-height: 2;
+    padding: 10px 20px 10px 0;
+}
+
+.bb-artikel h2{
+    padding-bottom: 20px;
+}
+
+.bb-img{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 2rem;
+}
+
+.bb-img img{
+    width: 90%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+/* Styling af genbrug.html */
+
+/* Styling af budget tekst og img */
+.budget-afsnit{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 6rem 6rem 6rem;
+}
+
+.budget-artikel p{
+    line-height: 2;
+}
+
+.budget-artikel{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem;
+}
+
+.budget-artikel h2{
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+
+.budget-img{
+    display: flex;
+    justify-content: center;
+}
+
+.budget-img img{
+    width: 40%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+/* Styling af find genbrugsbutikker artikel og tektsboks samt billeder */
+
+.gb-afsnit{
+    margin: 4rem 6rem 6rem 6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.gb-afsnit p,li{
+    line-height:2;
+}
+
+.gb-afsnit p{
+    padding: 10px 0 10px 0;
+}
+
+.gb-artikel h2{
+    text-align: left;
+    padding-bottom: 40px;
+}
+
+.gb-list{
+    margin-top: 3rem;
+}
+
+.gb-list h3{
+    padding-bottom: 10px;
+    font-family: EB Garamond,sans-serif;
+    color: var(--secondarycolor);
+}
+
+
+.gb-tekstboks{
+    background-color: var(--primarycolor);
+    color: white;
+    padding: 20px;
+    height: auto;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.gb-tekstboks ul li, .gb-tekstboks ul{
+    padding: 10px 0 10px 10px; 
+}
+
+.gb-img{
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.gb-img img{
+    width: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.tojmaerker-artikel{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.tojmaerker-artikel h2{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.tojmaerker-artikel ul{
+    padding: 0 30px 0 30px;
+}
+
+.tojmaerker-artikel p span{
+    color: black;
+    font-style: italic;
+}

@@ -1,0 +1,2 @@
+User-agent: *
+Allow: /Sitemap:https://re-life.sakuga.dk/sitemap.xml
